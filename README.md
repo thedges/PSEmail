@@ -30,7 +30,8 @@ For reference, here is example of configuring the PSEmailBlock as quick action
 Here are steps to setup and configure this component:
   * Install the component per the "Deploy to Salesforce" button below. 
   * Assign the __PSEmail__ permission set to any user that will use this component.
-  * If you are using the component directly on a page, configure the component properties: Height, Columns, EditFields, Content Parent Field
+  * If you are using the component directly on a page, just add the component to page and configure the 3 options as defined above.
+  * If you are using the component as a quick action, use one of the provided Aura components listed above (PSEmailBlock or PSEmailWarning) or create your own Aura version as the base for the quick action. Create the quick action as shown in sample screen above and add the quick action to your page layout.
   * That is it...now use either the Quick Action or Lightning Component depending on your choice of setup.
 
 # Installation Instructions
