@@ -24,7 +24,7 @@ While this Lightning Web Component can be placed on an record page and configure
   
 For reference, here is example of configuring the PSEmailBlock as quick action
 
-![alt text](https://github.com/thedges/PSEmail/blob/master/PSEmailBlockAction.gif "PSEmailBlockAction")
+![alt text](https://github.com/thedges/PSEmail/blob/master/PSEmailBlockAction.png "PSEmailBlockAction")
 
 # Setup Instructions
 Here are steps to setup and configure this component:
