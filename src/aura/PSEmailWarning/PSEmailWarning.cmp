@@ -1,0 +1,3 @@
+<aura:component implements = "force:lightningQuickAction,force:hasRecordId" >
+	<c:psEmail blockEmails="false" onclose="{!c.closeQA}" recordId="{!v.recordId}" onemailSent="{!c.refreshView}"/>
+</aura:component>

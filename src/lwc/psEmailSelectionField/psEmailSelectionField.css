@@ -1,0 +1,17 @@
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+.controls {
+    position: absolute; bottom: 0px; right: 0px; z-index: 999; padding: 8px;
+}
+
+.slds-modal__container {
+    width: 70% !important;
+    max-width: 80% !important;
+}
+
+.outside-domain {
+    background-color: red;
+}

@@ -1,0 +1,19 @@
+.slds-modal__container {
+    width: 80% !important;
+    max-width: 80% !important;
+}
+
+.flex-parent {
+    display: flex;
+}
+
+.flex-child {
+    flex: 1;
+    height: 100%;
+}
+
+.label {
+    max-width: 60px;
+    color: rgb(62,62,0);
+    vertical-align: middle;
+}

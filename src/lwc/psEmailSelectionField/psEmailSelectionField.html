@@ -1,0 +1,56 @@
+<template>
+    <div class="container">
+        <div style="border-radius: 4px; border: 1px solid #dcdbd9; width: 100%; min-height: 32px;" class="slds-form-element__control">
+            <template for:each={selectedEmails} for:item="email">
+              <lightning-pill key={email.id} label={email.name} name={email.id} onremove={removePill}>
+                 <lightning-icon icon-name="standard:contact" variant="circle" alternative-text="contact"></lightning-icon>
+              </lightning-pill>
+           </template>
+           <template for:each={manualEmails} for:item="email">
+            <lightning-pill key={email.email} label={email.email} name={email.email} onremove={removeManualPill}>
+                <lightning-icon class={email.class} icon-name="standard:avatar" variant="circle" alternative-text="contact"></lightning-icon>
+            </lightning-pill>
+         </template>
+            <input type="text" name="fname" style="border: 0px solid;" onkeypress={inputChange}>
+        </div>
+        <div class="controls">
+            <lightning-icon size="x-small" icon-name="utility:adduser" alternative-text="Add Emails"
+                onclick={addEmails}></lightning-icon>
+        </div>
+    </div>
+           <!-- TEMPLATE SELECTION MODAL -->
+        
+           <template if:true={openmodal}>
+            <div class="demo-only" style="height: 640px; width:700px;">
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                    aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header">
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                                title="Close" onclick={closeEmailModal}>
+                                <lightning-icon icon-name="utility:close" size="medium">
+                                </lightning-icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Choose Email Addresses
+                            </h2>
+                        </header>
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                            <div class="slds-m-around_medium">
+                                <template if:true={emails}>
+                                    <lightning-datatable class="emailTable" key-field="id" data={emails} columns={columns} selected-rows={selectedRows}>
+                                    </lightning-datatable>
+                                </template>
+                            </div>
+
+                        </div>
+                        <footer class="slds-modal__footer">
+                            <lightning-button label="Set Emails" variant="brand" onclick={setEmails}></lightning-button>
+                        </footer>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>
+        </template>
+</template>

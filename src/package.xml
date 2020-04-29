@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>PSEmailController</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>PSEmailBlock</members>
+        <members>PSEmailWarning</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>psEmail</members>
+        <members>psEmailSelectionField</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>PSEmail</members>
+        <name>PermissionSet</name>
+    </types>
+    <version>45.0</version>
+</Package>

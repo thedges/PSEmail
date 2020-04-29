@@ -1,0 +1,101 @@
+<template>
+    <div class='slds-card'>
+        <template if:true={showSpinner}>
+            <div class="spinner">
+                <lightning-spinner variant="brand" alternative-text="Getting data..."></lightning-spinner>
+            </div>
+        </template>
+        <div class="slds-p-around_x-small">
+            <div class="slds-p-top_x-small flex-parent">
+                <div class="flex-child label slds-p-top_xx-small">
+                    <span>From</span>
+                </div>
+                <div class="flex-child">
+                    <lightning-combobox variant="label-hidden" class="fromEmail" name="from" label="From"
+                        value={fromEmail} options={fromEmails} onchange={handleFromChange}></lightning-combobox>
+                </div>
+            </div>
+            <div class="slds-p-top_x-small flex-parent">
+                <div class="flex-child label slds-p-top_xx-small">
+                    <span>To</span>
+                </div>
+                <div class="flex-child">
+                    <c-ps-email-selection-field class="toEmailList" record-id={recordId} allowed-domains={allowedDomains} block-emails={blockEmails} account-field={accountField} onselected={handleToList}>
+                    </c-ps-email-selection-field>
+                </div>
+            </div>
+            <div class="slds-p-top_x-small flex-parent">
+                <div class="flex-child label slds-p-top_xx-small">
+                    <span>CC</span>
+                </div>
+                <div class="flex-child">
+                    <c-ps-email-selection-field class="ccEmailList" record-id={recordId} allowed-domains={allowedDomains} block-emails={blockEmails} account-field={accountField} onselected={handleFomList}>
+                    </c-ps-email-selection-field>
+                </div>
+            </div>
+            <div class="slds-p-top_x-small flex-parent">
+                <div class="flex-child label slds-p-top_xx-small">
+                    <span>Subject</span>
+                </div>
+                <div class="flex-child">
+                    <lightning-input class="subject" variant="label-hidden" type="text" label="Subject"></lightning-input>
+                </div>
+            </div>
+
+            <div class="slds-p-top_x-small">
+                <lightning-input-rich-text value="">
+                </lightning-input-rich-text>
+            </div>
+            <div class="slds-p-top_x-small">
+                <lightning-icon size="x-small" icon-name="utility:insert_template" alternative-text="Insert Template"
+                    onclick={selectTemplate}></lightning-icon>
+            </div>
+            <div class="slds-p-top_x-small slds-align_absolute-center">
+                <lightning-button variant="brand" label="Send Email" title="Send Email" onclick={sendEmail}>
+                </lightning-button>
+                <lightning-button class="slds-p-left_x-small" variant="brand" label="Clear" title="Clear" onclick={clearEmail}>
+                </lightning-button>
+            </div>
+        </div>
+
+        <!-- TEMPLATE SELECTION MODAL -->
+
+        <template if:true={templateModal}>
+            <div class="demo-only" style="height: 640px; width:700px;">
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                    aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header">
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                                title="Close" onclick={closeTemplateModal}>
+                                <lightning-icon icon-name="utility:close" size="medium">
+                                </lightning-icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Choose Email
+                                Template
+                            </h2>
+                        </header>
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                            <div class="slds-m-around_medium">
+                                <template if:true={templates}>
+                                    <lightning-datatable class="templateTable" key-field="id" data={templates}
+                                        columns={templateCols}>
+                                    </lightning-datatable>
+                                </template>
+                            </div>
+
+                        </div>
+                        <footer class="slds-modal__footer">
+                            <lightning-button label="Set Template" variant="brand" onclick={setTemplate}>
+                            </lightning-button>
+                        </footer>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>
+        </template>
+
+    </div>
+</template>
