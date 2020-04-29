@@ -16,6 +16,10 @@ Here are the main configuration options:
 | Allowed Domains Field  | The field API name on the account object that includes comma separated list of allowed domains |
 | Account Field | The field API name on the object that is lookup/master-detail to the account object |
 
+# Component Limitations
+
+Since this component uses Apex to send out emails, it will count against the org [5000 external emails per day limit](https://help.salesforce.com/articleView?id=limitations_email_mass.htm&type=5).
+
 # Quick Actions
 While this Lightning Web Component can be placed on an record page and configured as needed, sometimes you may want to launch the email editor from a quick action. Two sample quick actions have been created for reference.
 
