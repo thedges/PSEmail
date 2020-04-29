@@ -2,7 +2,7 @@
 
 THIS SOFTWARE IS COVERED BY [THIS DISCLAIMER](https://raw.githubusercontent.com/thedges/Disclaimer/master/disclaimer.txt).
 
-This is demo component to show creating emails with warning or blocking the To and CC list to contacts that are related to related account. This specific demo use case was to not allow sending emails outside those related to current account or were in an approved domain list. This component can be placed on any object as long as you have relationship to account object.
+This is demo component to show creating emails with warning or blocking the To and CC list of contacts that are specifically related to the account or are in an allowed email domain. The component has add email option to only present a list of contacts that are related to the "related" account (anything that is lookup or master-detail to current record). This component can be placed on any object as long as you have relationship to account object.
 
 Here is the demo component in action:
 
